@@ -13,7 +13,6 @@ export default function LinkExpand({expandNameParam, label}: LinkExpandProps){
     const router = useRouter()
     const pathname = usePathname()
     const expand = searchParams.get(expandNameParam) === 'true'
-    const classNameExpand = expand? '' : 'hidden' 
 
     const checkChangeHandler = (check:boolean) =>{
         const params = new URLSearchParams(searchParams)
@@ -22,10 +21,10 @@ export default function LinkExpand({expandNameParam, label}: LinkExpandProps){
     }
 
     return (
-        <div data-type='Middler' className= {twMerge("flex flex-col  overflow-auto bg-red-400", expand && "flex-grow")}>                                             
+        <div data-type='Middler' className= {twMerge("flex flex-col min-h-[2rem] overflow-auto bg-red-400", expand && "flex-grow")}>                                             
         <div className="bg-neutral-300  overflow-auto rounded-md m-1">
         {label} <input type="checkbox"  checked={expand} onChange={(e)=>{checkChangeHandler(e.target.checked)}} />
-            <ul className={classNameExpand}>                                
+            <ul className={twMerge(!expand && 'hidden')}>                                
                 {LinksElemnt
                 }
             </ul>
