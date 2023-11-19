@@ -18,6 +18,7 @@ export default function ProjectLayout (  {children,
                         Title
                     </div>
                     <LinkExpand label="DataType" expandNameParam="data-type-expand"/>
+                    <LinkExpand label="Datasource" expandNameParam="data-source-expand"/>
                     <div data-type='Footer' className=" bg-slate-900">Footer</div>
                 </nav>
                 {children}
